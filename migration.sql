@@ -13,23 +13,29 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE categories (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
 CREATE TABLE ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
+    cat_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
     description TEXT NOT NULL,
     location VARCHAR(240) NOT NULL,
     date VARCHAR(12) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (cat_id) REFERENCES categories(id)
+    ON DELETE CASCADE
 );
 
-CREATE TABLE categories (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
-);
+
 
 CREATE TABLE ad_cat (
     ad_id INT UNSIGNED NOT NULL,
