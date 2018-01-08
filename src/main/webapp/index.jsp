@@ -18,7 +18,7 @@
             </form>
         </div>
     </div>
-        <br>
+        <%--<br>--%>
 
 
     <%--<c:forEach var="category" items="${categories}">--%>
@@ -29,7 +29,7 @@
 
 
     <div>
-    <div class="box jobs card text-white bg-primary mb-3">Jobs</div>
+    <div class="box jobs card text-white bg-primary mb-3">Jobs </div>
     <div class="box forsale card text-white bg-secondary mb-3">For Sale</div>
     <div class="box services card text-white bg-success mb-3">Services</div>
     <div class="box housing card text-white bg-warning mb-3">Housing</div>
