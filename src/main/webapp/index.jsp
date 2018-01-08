@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="CatLister" />
+        <jsp:param name="title" value="AdLister" />
     </jsp:include>
 </head>
 <body>
@@ -14,13 +14,15 @@
         </div>
         <div>
             <%--add categories here --%>
-                <div class="box red">620-750 nm</div>
-                <div class="box orange">590-620 nm</div>
-                <div class="box yellow">570-590 nm</div>
-                <div class="box green">495-570 nm</div>
-                <div class="box blue">450-495 nm</div>
-                <div class="box violet">380-450 nm</div>
+                <div class="box jobs card text-white bg-primary mb-3">Jobs</div>
+                <div class="box forsale card text-white bg-secondary mb-3">For Sale</div>
+                <div class="box services card text-white bg-success mb-3">Services</div>
+                <br>
+                <div class="box housing card text-white bg-warning mb-3">Housing</div>
+                <div class="box forfree card text-white bg-info mb-3">For Free</div>
+                <div class="box misc card text-white bg-dark mb-3">Miscellaneous</div>
         </div>
+    </div>
 
 </body>
 </html>
