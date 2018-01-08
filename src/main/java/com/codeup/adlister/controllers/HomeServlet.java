@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.HomeServlet", urlPatterns = "/")
+@WebServlet(name = "controllers.HomeServlet", urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-        request.setAttribute("cat_ads", DaoFactory.getCategoryDao().all());
+        request.setAttribute("categories", DaoFactory.getCategoryDao().all());
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }
