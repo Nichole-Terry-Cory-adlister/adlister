@@ -3,13 +3,34 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
+        <jsp:param name="title" value="CatLister" />
     </jsp:include>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <div class="jumbotron">
+            <h1 class="display-3">CatLister</h1>
+            <p class="lead">A website where people sell cats. </p>
+            <%--<p class="lead">--%>
+            <%--</p>--%>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class=".col-sm-6">
+                        1 of 3
+                    </div>
+                    <div class=".col-sm-6">
+                        2 of 3
+                    </div>
+                    <div class=".col-sm-6">
+                        3 of 3
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
