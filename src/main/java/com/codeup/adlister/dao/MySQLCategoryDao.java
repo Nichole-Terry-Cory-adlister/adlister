@@ -53,12 +53,12 @@ public class MySQLCategoryDao implements Categories {
     }
 
     //Searches for ads with a given category
-    public List<Catergory> search(String cat_id){
+    public List<Catergory> search(int catId){
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id IN " +
-                    "(SELECT ad_id FROM ad_cat WHERE cat_id IS ?)");
-            stmt.setString(1, cat_id);
+            System.out.println(catId);
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id LIKE ?");
+            stmt.setInt(1, catId);
             ResultSet rs = stmt.executeQuery();
             return createCategoriesFromResults(rs);
         } catch (SQLException e) {
