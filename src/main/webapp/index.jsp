@@ -10,27 +10,17 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-3">CatLister</h1>
-            <p class="lead">A website where people sell cats. </p>
-            <%--<p class="lead">--%>
-            <%--</p>--%>
+
         </div>
         <div>
-            <div class="container">
-                <div class="row">
-                    <div class=".col-sm-6">
-                        1 of 3
-                    </div>
-                    <div class=".col-sm-6">
-                        2 of 3
-                    </div>
-                    <div class=".col-sm-6">
-                        3 of 3
-                    </div>
-                </div>
-            </div>
+            <%--add categories here --%>
+                <div class="box red">620-750 nm</div>
+                <div class="box orange">590-620 nm</div>
+                <div class="box yellow">570-590 nm</div>
+                <div class="box green">495-570 nm</div>
+                <div class="box blue">450-495 nm</div>
+                <div class="box violet">380-450 nm</div>
         </div>
-    </div>
 
 </body>
 </html>
