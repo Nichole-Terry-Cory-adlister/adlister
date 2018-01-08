@@ -8,9 +8,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Edit Ad" />
+    </jsp:include>
 </head>
 <body>
-$END$
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <h1>Edit your Ad</h1>
+
+    <form action="/ads/edit" method="POST">
+        <label for="title">Title</label>
+        <input id="title" type="text">
+
+        <label for="description"></label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+
+        <button type="submit">Edit</button>
+    </form>
+
 </body>
 </html>

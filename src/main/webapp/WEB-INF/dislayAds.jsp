@@ -8,9 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Viewing Ad" />
+    </jsp:include>
 </head>
 <body>
-$END$
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <div class="container">
+
+        <h2>${ad.title}</h2>
+        <div>Pic</div>
+        <p>${ad.description}</p>
+        <p>${categories}</p>
+
+    </div>
+
 </body>
 </html>
