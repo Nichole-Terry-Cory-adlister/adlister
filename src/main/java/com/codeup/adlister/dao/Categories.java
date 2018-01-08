@@ -9,4 +9,7 @@ public interface Categories {
     List<Catergory> all();
     // insert a new ad and return the new ad's id
     Long insert(Catergory catergory);
+
+    List<Catergory> search(String input);
+
 }

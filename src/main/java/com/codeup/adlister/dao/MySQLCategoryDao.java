@@ -52,6 +52,35 @@ public class MySQLCategoryDao implements Categories {
         }
     }
 
+    //Searches for ads with a given category
+    public List<Catergory> search(String cat_id){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id IN " +
+                    "(SELECT ad_id FROM ad_cat WHERE cat_id IS ?)");
+            stmt.setString(1, cat_id);
+            ResultSet rs = stmt.executeQuery();
+            return createCategoriesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving requested ads.", e);
+        }
+
+    }
+
+    //Gets all the categories
+    public List<Catergory> getCategories(){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM categories");
+            ResultSet rs = stmt.executeQuery();
+            return createCategoriesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving requested ads.", e);
+        }
+
+    }
+
+
     private Catergory extractCategory(ResultSet rs) throws SQLException {
         return new Catergory(
                 rs.getInt("id"),
