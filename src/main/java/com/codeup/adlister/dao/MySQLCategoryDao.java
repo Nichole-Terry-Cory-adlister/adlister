@@ -52,6 +52,19 @@ public class MySQLCategoryDao implements Categories {
         }
     }
 
+    public List<Catergory> search(String cat_id){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM categories WHERE id IS ?");
+            stmt.setString(1, cat_id);
+            ResultSet rs = stmt.executeQuery();
+            return createCategoriesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving requested ads.", e);
+        }
+
+    }
+
     private Catergory extractCategory(ResultSet rs) throws SQLException {
         return new Catergory(
                 rs.getInt("id"),
