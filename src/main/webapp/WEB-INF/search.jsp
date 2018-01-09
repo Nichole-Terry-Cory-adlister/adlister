@@ -10,19 +10,20 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Search view placeholder</h1>
     <c:forEach var="ad" items="${ads}">
+        <a href="/ads/ad?id=${ad.id}">
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
             <c:forEach var="cat" items="${categories}">
                 <c:if test="${cat.id == ad.catId}">
-                    <p>${cat.name}</p>
+                    <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
+                        <jsp:param name="title" value="${ad.title}"/>
+                        <jsp:param name="date" value="${ad.date}"/>
+                        <jsp:param name="category" value="${cat.name}"/>
+                    </jsp:include>
                 </c:if>
             </c:forEach>
-            <p>${ad.location}</p>
-            <p>${ad.date}</p>
         </div>
+        </a>
     </c:forEach>
 
 </div>
