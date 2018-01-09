@@ -11,4 +11,5 @@ public interface Ads {
     Long insert(Ad ad);
 
     List<Ad> search(String input);
+    List<Ad> searchByCat(int catId);
 }

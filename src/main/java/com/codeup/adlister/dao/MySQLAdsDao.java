@@ -58,7 +58,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> search(String input){
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ? OR description LIKE ? OR id LIKE ?");
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ? OR description LIKE ? OR date LIKE ?");
             stmt.setString(1, "%" + input + "%");
             stmt.setString(2, "%" + input + "%");
             stmt.setString(3, "%" + input + "%");
@@ -69,6 +69,20 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+
+    //Searches for ads with a given category
+    public List<Ad> searchByCat(int catId){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE cat_id = ?");
+            stmt.setLong(1, catId);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving requested ads.", e);
+        }
+    }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
@@ -87,6 +101,7 @@ public class MySQLAdsDao implements Ads {
         while (rs.next()) {
             ads.add(extractAd(rs));
         }
+        rs.close();
         return ads;
     }
 }
