@@ -22,13 +22,14 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        List<Catergory> all = DaoFactory.getCategoryDao().all();
+        request.setAttribute("all", DaoFactory.getCategoryDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        System.out.println(request.getParameter("catId"));
         Ad ad = new Ad(
                 user.getId(),
                 Long.parseLong(request.getParameter("catId")),
