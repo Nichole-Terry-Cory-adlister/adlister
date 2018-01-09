@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -19,22 +20,17 @@
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                <textarea id="location" name="location" class="form-control" type="text"></textarea>
+                <input id="location" name="location" class="form-control" type="text"></input>
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <textarea id="date" name="date" class="form-control" type="text"></textarea>
+                <input id="date" name="date" class="form-control" type="text"></input>
             </div>
-            <select id="selectedRecord" name="selectedRecord">
-
+            <select id="catId" name="catId">
                 <c:forEach var="Category" items="${all}">
-
                     <option value="${Category.id}">${Category.name}</option>
-
                 </c:forEach>
-
             </select>
-
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
