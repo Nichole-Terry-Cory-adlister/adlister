@@ -1,0 +1,6 @@
+*.iml
+target/
+.idea/
+Config.java
+.gitignore
+.DS_Store
