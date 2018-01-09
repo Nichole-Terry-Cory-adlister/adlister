@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: terryhale
-  Date: 1/8/18
-  Time: 1:34 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,10 +11,14 @@
 
     <div class="container">
 
-        <h2>${ad.title}</h2>
+        <h2 class="mt=5">${ads[0].title}</h2>
         <div>Pic</div>
-        <p>${ad.description}</p>
-        <p>${categories}</p>
+        <p>${ads[0].description}</p>
+        <c:forEach var="cat" items="${categories}">
+            <c:if test="${cat.id == ads[0].catId}">
+                <p>${cat.name}</p>
+            </c:if>
+        </c:forEach>
 
     </div>
 
