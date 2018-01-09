@@ -25,6 +25,16 @@
                 <label for="date">Date</label>
                 <textarea id="date" name="date" class="form-control" type="text"></textarea>
             </div>
+            <select id="selectedRecord" name="selectedRecord">
+
+                <c:forEach var="Category" items="${all}">
+
+                    <option value="${Category.id}">${Category.name}</option>
+
+                </c:forEach>
+
+            </select>
+
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
