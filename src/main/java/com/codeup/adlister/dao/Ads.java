@@ -12,4 +12,5 @@ public interface Ads {
 
     List<Ad> search(String input);
     List<Ad> searchByCat(int catId);
+    List<Ad> searchByAdId(int id);
 }
