@@ -26,14 +26,9 @@
         </a>
     </c:forEach>
 
-    <%--<div>--%>
-    <%--<div class="box jobs card text-white bg-primary mb-3">Jobs</div>--%>
-    <%--<div class="box forsale card text-white bg-secondary mb-3">For Sale</div>--%>
-    <%--<div class="box services card text-white bg-success mb-3">Services</div>--%>
-    <%--<div class="box housing card text-white bg-warning mb-3">Housing</div>--%>
-    <%--<div class="box forfree card text-white bg-info mb-3">For Free</div>--%>
-    <%--<div class="box misc card text-white bg-dark mb-3">Miscellaneous</div>--%>
-    <%--</div>--%>
+
+        <%--["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];--%>
+
 </div>
 <script src="JavaScript/ColorPicker.js"></script>
 </body>

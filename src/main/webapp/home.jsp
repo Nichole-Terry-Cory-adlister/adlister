@@ -5,7 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="AdLister" />
     </jsp:include>
-    <script src="JavaScript/ColorPicker.js"></script>
+    <%--<script src="JavaScript/ColorPicker.js"></script>--%>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -19,20 +19,19 @@
             </form>
         </div>
     </div>
-        <%--<br>--%>
+        <br>
 
 
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
-            <div class="${category.id} box card bg-dark text-white mb-3">${category.name}</div>
+            <div class="${category.id} box card text-primary mb-3">${category.name}</div>
         </a>
-        <%--<script>--%>
-            <%--var colors = ['#007bff', '#772953','#e83e8','#DF382C','#E95420','#EFB73E','#20c997','#17a2b8','#772953','#E95420','#17a2b8','#EFB73E'];--%>
-            <%--var random_color = colors[Math.floor(Math.random() * colors.length + 1)];--%>
-            <%--$('.${category.id}').css('background-color', random_color);--%>
-        <%--</script>--%>
+        <script>
+            var colors = ["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];
+            var random_color = colors[Math.floor(Math.random() * colors.length + 1)];
+            $('.${category.id}').css('background_color', random_color);
+        </script>
     </c:forEach>
-
 
     <%--<div>--%>
     <%--<div class="box jobs card text-white bg-primary mb-3">Jobs </div>--%>
