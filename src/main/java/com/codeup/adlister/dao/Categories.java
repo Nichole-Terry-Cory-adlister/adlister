@@ -10,6 +10,4 @@ public interface Categories {
     // insert a new ad and return the new ad's id
     Long insert(Catergory catergory);
 
-    List<Catergory> search(int input);
-
 }

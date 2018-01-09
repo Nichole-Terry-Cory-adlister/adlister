@@ -24,13 +24,13 @@
 
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
-            <div class="${category.id} box card text-white mb-3">${category.name}</div>
+            <div class="${category.id} box card bg-dark text-white mb-3">${category.name}</div>
         </a>
-        <script>
-            var colors = ['#007bff', '#772953','#e83e8','#DF382C','#E95420','#EFB73E','#20c997','#17a2b8','#772953','#E95420','#17a2b8','#EFB73E'];
-            var random_color = colors[Math.floor(Math.random() * colors.length + 1)];
-            $('.${category.id}').css('background-color', random_color);
-        </script>
+        <%--<script>--%>
+            <%--var colors = ['#007bff', '#772953','#e83e8','#DF382C','#E95420','#EFB73E','#20c997','#17a2b8','#772953','#E95420','#17a2b8','#EFB73E'];--%>
+            <%--var random_color = colors[Math.floor(Math.random() * colors.length + 1)];--%>
+            <%--$('.${category.id}').css('background-color', random_color);--%>
+        <%--</script>--%>
     </c:forEach>
 
 
