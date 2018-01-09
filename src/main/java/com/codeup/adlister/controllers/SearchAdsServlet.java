@@ -19,15 +19,13 @@ public class SearchAdsServlet extends HttpServlet {
             //Search for ads from a user input
             request.setAttribute("ads", DaoFactory.getAdsDao().search(input));
             request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
-        }
-
-        if (catId != null){
+        }else if (catId != null){
             int catInt = Integer.parseInt(catId);
             //Search for Ads from a given category
             request.setAttribute("ads", DaoFactory.getAdsDao().searchByCat(catInt));
             request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
-           }
-
-           response.sendRedirect("/home");
+           }else {
+            response.sendRedirect("/home");
+        }
     }
 }
