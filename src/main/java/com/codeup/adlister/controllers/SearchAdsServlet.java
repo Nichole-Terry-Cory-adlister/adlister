@@ -14,10 +14,7 @@ public class SearchAdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String input = request.getParameter("input");
         String catId = request.getParameter("catid");
-
-        System.out.println(input);
-        System.out.println(catId);
-
+        request.setAttribute("categories", DaoFactory.getCategoryDao().all());
         if (input != null) {
             //Search for ads from a user input
             request.setAttribute("ads", DaoFactory.getAdsDao().search(input));
@@ -27,7 +24,7 @@ public class SearchAdsServlet extends HttpServlet {
         if (catId != null){
             int catInt = Integer.parseInt(catId);
             //Search for Ads from a given category
-            request.setAttribute("ads", DaoFactory.getCategoryDao().search(catInt));
+            request.setAttribute("ads", DaoFactory.getAdsDao().searchByCat(catInt));
             request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
            }
 
