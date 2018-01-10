@@ -8,11 +8,11 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
-<div class="container">
+<div class="container" style="margin-top: 75px">
+<row>
     <c:forEach var="ad" items="${ads}">
-        <a href="/ads/ad?id=${ad.id}">
-        <div class="col-md-6">
+            <div class="span2 well">
+            <a href="/ads/ad?id=${ad.id}">
             <c:forEach var="cat" items="${categories}">
                 <c:if test="${cat.id == ad.catId}">
                     <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
@@ -22,11 +22,10 @@
                     </jsp:include>
                 </c:if>
             </c:forEach>
-        </div>
-        </a>
+            </a>
+            </div>
     </c:forEach>
-
+</row>
 </div>
-
 </body>
 </html>

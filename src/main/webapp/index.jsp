@@ -20,8 +20,6 @@
         </div>
     </div>
         <%--<br>--%>
-
-
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
             <div class="${category.id} box card bg-dark text-white mb-3">${category.name}</div>
