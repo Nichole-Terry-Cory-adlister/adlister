@@ -1,31 +1,22 @@
-<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-    <div class="container">
-        <a href="/" class="navbar-brand">AdLister</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav ml-auto" id="buttons">
-                <%--<li class="nav-item">--%>
-                    <%--<a class="nav-link" href="/dash">Dashboard</a>--%>
-                <%--</li>--%>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ads/create">Create Ad</a>
-                </li>
-                <li class="nav-item">
-                    <button id="myButton">Login</button>
-                </li>
-            </ul>
+<%--
+  Created by IntelliJ IDEA.
+  User: nicholekirlin
+  Date: 1/9/18
+  Time: 2:49 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
+</head>
+<body>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 
-            <%--<button>Create Ad</button>--%>
-            <%--<button>Login</button>--%>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="myButton">
+<div class="modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -55,6 +46,6 @@
     </div>
 </div>
 
-<script>
-    $('#myButton').modal(options)
-</script>
+
+</body>
+</html>
