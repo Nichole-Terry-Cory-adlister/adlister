@@ -33,16 +33,20 @@
 
 <script>
     var colors = ["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];
-
+    var usedColors = [];
     $('.box').each(function(){
-    var random_color = colors[Math.floor(Math.random() * colors.length)];
+        var random_color = colors[Math.floor(Math.random() * colors.length)];
+        while (usedColors.includes(random_color)) {
+            random_color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        usedColors.push(random_color);
 //        var random_color = colors.length;
         $(this).css("background-color", random_color)
     });
 
+
     <%--$('.${category.id}').css('background_color', random_color);--%>
     <%--console.log("error?");--%>
-
 </script>
 
 </body>
