@@ -107,3 +107,24 @@ a:link, a:visited {
 .in {
     background: rgba(0, 0, 0, 0.4);
 }
+
+
+.welcome{
+    display: inline;
+    float: left;
+    margin-top: 75px;
+    text-align: center;
+}
+
+.adsHere {
+    /*position: relative;*/
+    margin-top: 205px;
+    display: inline;
+    float: right;
+    text-align: center;
+}
+
+.imgedits {
+    margin-bottom: 10px;
+    border-radius: 15%;
+}
