@@ -12,7 +12,8 @@
 <div class="container">
     <br>
     <hr>
-    <h1>Searching for: ${term}</h1>
+    <br>
+    <h1>Results for: ${term}</h1>
 
 <div class="container" style="margin-top: 75px">
 <row>
