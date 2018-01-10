@@ -24,35 +24,34 @@
 </div>
 
 <!-- Modal -->
-<div class="modal bg-transparent" id="myModal" role="dialog">
+<div class="modal bg-transparent in" id="myModal" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
-                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-header bg-primary" style="padding:35px 50px;">
+                <h4 class="logintitle"><span class="glyphicon glyphicon-lock bg-primary"></span> Log In Here</h4>
+                <button type="button" class="close modalclose" data-dismiss="modal"> X </button>
             </div>
-            <div class="modal-body" style="padding:40px 50px;">
+            <div class="modal-body bg-light" style="padding:40px 50px;">
                 <form role="form" action="/login" method="POST">
                     <div class="form-group">
-                        <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter email">
+                        <label for="username"> Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
                     </div>
                     <div class="form-group">
-                        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <label for="password"> Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Enter password">
                     </div>
-                    <%--<div class="checkbox">--%>
-                        <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
-                    <%--</div>--%>
-                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" checked> Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Login</button>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <p>Not a member? <a href="/register">Sign Up</a></p>
-?            </div>
+            <div class="modal-footer bg-light">
+                <p>Not a registered user? <a href="/register">Sign Up Here</a> </p>
+            </div>
         </div>
     </div>
     </div>

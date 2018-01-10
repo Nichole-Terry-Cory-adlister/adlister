@@ -95,3 +95,15 @@ a:link, a:visited {
 .modal-footer {
     background-color: #f9f9f9;
 }
+
+.logintitle {
+    background-color: #E95420;
+}
+
+.modalclose {
+    color: white;
+}
+
+.in {
+    background: rgba(0, 0, 0, 0.4);
+}
