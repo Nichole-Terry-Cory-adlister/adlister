@@ -9,29 +9,18 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
     <div class="container">
         <div class="welcome col-lg-4">
-        <%--<br>--%>
-        <%--<hr>--%>
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h1>Welcome, <e:forHtmlContent value="${sessionScope.user.username}"/>!</h1>
         <br>
         <img src="http://lorempixel.com/g/325/400" class="imgedits">
             <button type="button" class="btn btn-secondary disabled">Edit Profile</button>
         </div>
-
         <div class="adsHere col-lg-8">
         <h2>My Ads</h2>
-
-            <%--<c:forEach var="ad" items="${userAds}">--%>
-                <%--<a href="/ads/ad?id=${ad.id}">--%>
-                    <%--<div class="box card mb-3">${ad.title}</div>--%>
-                <%--</a>--%>
-            <%--</c:forEach>--%>
-
             <c:forEach var="ad" items="${userAds}">
                 <div class="span2 well">
-                    <a href="/ads/ad?id=${ad.id}">
+                    <a href="/ads/ad?id="<e:forUriComponent value="${ad.id}"/>>
                         <c:forEach var="cat" items="${categories}">
                             <c:if test="${cat.id == ad.catId}">
                                 <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
@@ -44,12 +33,7 @@
                     </a>
                 </div>
             </c:forEach>
-
-
-
         </div>
-
-
     </div>
 
 
