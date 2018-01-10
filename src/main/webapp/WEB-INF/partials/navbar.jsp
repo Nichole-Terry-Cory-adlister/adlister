@@ -13,11 +13,10 @@
                     <a class="nav-link" href="/ads/create">Create Ad</a>
                 </li>
                 <li class="nav-item">
-                    <button id="myButton">Login</button>
+                    <%--<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>--%>
+                        <a href="/login" class="nav-link" id="myBtn">Log In</a>
                 </li>
             </ul>
-
-
             <%--<button>Create Ad</button>--%>
             <%--<button>Login</button>--%>
         </div>
@@ -25,36 +24,48 @@
 </div>
 
 
-<div class="modal fade" id="myButton">
-    <div class="modal-dialog" role="document">
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Please log in here</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="modal-header" style="padding:35px 50px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
             </div>
-            <div class="modal-body">
-                <h1>Please Log In</h1>
-                <form action="/login" method="POST">
+            <div class="modal-body" style="padding:40px 50px;">
+                <form role="form">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input id="username" name="username" class="form-control" type="text">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" class="form-control" id="usrname" placeholder="Enter email">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" name="password" class="form-control" type="password">
+                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="text" class="form-control" id="psw" placeholder="Enter password">
                     </div>
-                    <%--<input type="submit" class="btn btn-primary btn-block" value="Log In">--%>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" value="Log in">Log In</button>
+                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <p>Not a member? <a href="#">Sign Up</a></p>
+                <p>Forgot <a href="#">Password?</a></p>
             </div>
         </div>
+
     </div>
+</div>
 </div>
 
 <script>
-    $('#myButton').modal(options)
+    $(document).ready(function(){
+        $("#myBtn").click(function(e){
+            e.preventDefault();
+            $("#myModal").modal();
+        });
+    });
 </script>
