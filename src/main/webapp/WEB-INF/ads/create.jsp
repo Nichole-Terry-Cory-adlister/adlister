@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create a new Ad</h1>
+        <br>
+        <hr>
+        <h1>Create A New Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -31,7 +33,7 @@
                     <option value="${Category.id}">${Category.name}</option>
                 </c:forEach>
             </select>
-            <input type="submit" class="btn btn-block btn-primary">
+            <input type="submit" class="btn btn-block btn-primary spacing">
         </form>
     </div>
 </body>
