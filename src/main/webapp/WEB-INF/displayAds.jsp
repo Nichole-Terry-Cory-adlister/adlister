@@ -15,7 +15,7 @@
 
         <h2 class="mt=5">${ads[0].title}</h2>
         <div>
-            pic
+            <img src="">
         </div>
         <p>${ads[0].description}</p>
         <c:forEach var="cat" items="${categories}">
