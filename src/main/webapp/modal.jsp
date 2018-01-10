@@ -7,13 +7,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         .modal-header, h4, .close {
-            background-color: #5cb85c;
             color:white !important;
             text-align: center;
             font-size: 30px;
         }
         .modal-footer {
-            background-color: #f9f9f9;
         }
     </style>
 </head>
