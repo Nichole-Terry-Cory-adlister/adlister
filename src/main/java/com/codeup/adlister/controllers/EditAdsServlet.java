@@ -1,5 +1,9 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +15,31 @@ import java.io.IOException;
 public class EditAdsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
+            String adId = request.getParameter("id");
+            request.setAttribute("categories", DaoFactory.getCategoryDao().all());
+            System.out.println(adId);
+            if (adId != null) {
+                int  convertedAdId = Integer.parseInt(adId);
+                //Search for ads from a user input
+                request.setAttribute("ads", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
+                request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("/ads");
+            }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        System.out.println(request.getParameter("id"));
+        Ad ad = new Ad(
+                user.getId(),
+                Long.parseLong(request.getParameter("catId")),
+                request.getParameter("title"),
+                request.getParameter("description"),
+                request.getParameter("location"),
+                request.getParameter("date")
+        );
+        DaoFactory.getAdsDao().updateAd(ad);
+        response.sendRedirect("/ads");
     }
 }
