@@ -49,10 +49,8 @@ container {
     display: inline-block;
     text-align: center;
     font-size: 30px;
-<<<<<<< HEAD
 }
-=======
-}
+
 
 .jobs {
  /*background-color: #e83e8c;*/
@@ -88,4 +86,12 @@ a:link, a:visited {
     /*margin: 20px 10px 20px 70px;*/
      display: inline-block;
 }
->>>>>>> 920fd3ac20236eb9fefe7c10ba3e85b60a1dd92e
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+}
+.modal-footer {
+    background-color: #f9f9f9;
+}
