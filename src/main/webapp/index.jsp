@@ -5,7 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="AdLister" />
     </jsp:include>
-    <script src="JavaScript/ColorPicker.js"></script>
+    <%--<script src="JavaScript/ColorPicker.js"></script>--%>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -19,30 +19,30 @@
             </form>
         </div>
     </div>
-        <%--<br>--%>
-
-
+        <br>
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
-            <div class="${category.id} box card bg-dark text-white mb-3">${category.name}</div>
+            <div class="box card mb-3">${category.name}</div>
         </a>
-        <%--<script>--%>
-            <%--var colors = ['#007bff', '#772953','#e83e8','#DF382C','#E95420','#EFB73E','#20c997','#17a2b8','#772953','#E95420','#17a2b8','#EFB73E'];--%>
-            <%--var random_color = colors[Math.floor(Math.random() * colors.length + 1)];--%>
-            <%--$('.${category.id}').css('background-color', random_color);--%>
-        <%--</script>--%>
     </c:forEach>
-
-
-    <%--<div>--%>
-    <%--<div class="box jobs card text-white bg-primary mb-3">Jobs </div>--%>
-    <%--<div class="box forsale card text-white bg-secondary mb-3">For Sale</div>--%>
-    <%--<div class="box services card text-white bg-success mb-3">Services</div>--%>
-    <%--<div class="box housing card text-white bg-warning mb-3">Housing</div>--%>
-    <%--<div class="box forfree card text-white bg-info mb-3">For Free</div>--%>
-    <%--<div class="box misc card text-white bg-dark mb-3">Miscellaneous</div>--%>
-    <%--</div>--%>
 </div>
-<%--<script src="JavaScript/ColorPicker.js"></script>--%>
+<script>
+    var colors = ["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];
+    var usedColors = [];
+    $('.box').each(function(){
+        var random_color = colors[Math.floor(Math.random() * colors.length)];
+        while (usedColors.includes(random_color)) {
+            random_color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        usedColors.push(random_color);
+//        var random_color = colors.length;
+        $(this).css("background-color", random_color)
+    });
+
+
+    <%--$('.${category.id}').css('background_color', random_color);--%>
+    <%--console.log("error?");--%>
+</script>
+
 </body>
 </html>

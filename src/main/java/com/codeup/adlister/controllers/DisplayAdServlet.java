@@ -15,7 +15,6 @@ public class DisplayAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String adId = request.getParameter("id");
         request.setAttribute("categories", DaoFactory.getCategoryDao().all());
-        System.out.println(adId);
         if (adId != null) {
             int  convertedAdId = Integer.parseInt(adId);
             //Search for ads from a user input

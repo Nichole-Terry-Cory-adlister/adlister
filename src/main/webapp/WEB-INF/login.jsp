@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -8,7 +9,11 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Please Log In</h1>
+        <br>
+        <hr>
+        <br>
+        <h1 style="text-align: center">Please Log In</h1><br>
+        <div style="color: #FF0000;">${errorMessage}</div>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -22,4 +27,7 @@
         </form>
     </div>
 </body>
+<script>
+
+</script>
 </html>
