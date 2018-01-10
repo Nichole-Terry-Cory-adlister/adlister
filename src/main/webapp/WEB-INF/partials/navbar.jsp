@@ -7,21 +7,61 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto" id="buttons">
                 <%--<li class="nav-item">--%>
-                    <%--<a class="nav-link" href="/dash">Dashboard</a>--%>
+                <%--<a class="nav-link" href="/dash">Dashboard</a>--%>
                 <%--</li>--%>
                 <li class="nav-item">
                     <a class="nav-link" href="/ads/create">Create Ad</a>
                 </li>
                 <li class="nav-item">
                     <%--<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>--%>
-                        <a href="/login" class="nav-link" id="myBtn">Log In</a>
+                    <a href="/login" class="nav-link" id="myBtn">Log In</a>
                 </li>
             </ul>
-            <%--<button>Create Ad</button>--%>
-            <%--<button>Login</button>--%>
         </div>
+
+
+        <%--code below- the links work when the page is deployed. --%>
+        <%--however, don't want to see buttons stacked vertically. --%>
+        <%--need to run the choose test!--%>
+        <%--also need to add small screen dropdown functionality. --%>
+
+
+<%--<div class="collapse navbar-collapse" id="navbarResponsive">--%>
+    <%--<ul class="nav navbar-nav ml-auto" id="buttons">--%>
+        <%--&lt;%&ndash;<li class="nav-item">&ndash;%&gt;--%>
+        <%--&lt;%&ndash;<a class="nav-link" href="/dash">Dashboard</a>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+            <%--<c:choose>--%>
+                <%--<c:when test="${sessionScope.user == null}">--%>
+
+                    <%--<li class="nav-item">--%>
+                        <%--&lt;%&ndash;<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>&ndash;%&gt;--%>
+                        <%--<a href="/login" class="nav-link" id="myBtn">Log In</a>--%>
+                    <%--</li>--%>
+                <%--</c:when>--%>
+
+                <%--<c:when test="${sessionScope.user != null}">--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a class="nav-link" href="/ads/create">Create Ad</a>--%>
+                    <%--</li>--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a class="nav-link" href="/profile">Profile</a>--%>
+                    <%--</li>--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a class="nav-link" href="/logout">Log Out</a>--%>
+                    <%--</li>--%>
+                <%--</c:when>--%>
+
+            <%--</c:choose>--%>
+    <%--</ul>--%>
+<%--</div>--%>
+
     </div>
 </div>
+
+
+
+
 
 <!-- Modal -->
 <div class="modal bg-transparent in" id="myModal" role="dialog">
@@ -53,6 +93,5 @@
                 <p>Not a registered user? <a href="/register">Sign Up Here</a> </p>
             </div>
         </div>
-    </div>
     </div>
 </div>
