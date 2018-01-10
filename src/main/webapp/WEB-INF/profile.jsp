@@ -20,7 +20,7 @@
         <h2>My Ads</h2>
             <c:forEach var="ad" items="${userAds}">
                 <div class="span2 well">
-                    <a href="/ads/ad?id="<e:forUriComponent value="${ad.id}"/>>
+                    <a href="/ads/ad?id=<e:forUriComponent value="${ad.id}"/>">
                         <c:forEach var="cat" items="${categories}">
                             <c:if test="${cat.id == ad.catId}">
                                 <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
@@ -35,7 +35,5 @@
             </c:forEach>
         </div>
     </div>
-
-
 </body>
 </html>

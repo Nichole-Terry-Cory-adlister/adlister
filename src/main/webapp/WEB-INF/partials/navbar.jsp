@@ -26,7 +26,6 @@
 <!-- Modal -->
 <div class="modal bg-transparent in" id="myModal" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header bg-primary" style="padding:35px 50px;">
@@ -37,7 +36,7 @@
                 <form role="form" action="/login" method="POST">
                     <div class="form-group">
                         <label for="username"> Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholde="Enter username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
                     </div>
                     <div class="form-group">
                         <label for="password"> Password</label>
