@@ -20,17 +20,12 @@
         </div>
     </div>
         <br>
-
-<%--want to remove randomization of colors on cards--%>
-        <%--<br>--%>
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
             <div class="box card mb-3">${category.name}</div>
         </a>
     </c:forEach>
-
 </div>
-
 <script>
     var colors = ["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];
     var usedColors = [];
