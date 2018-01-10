@@ -19,13 +19,10 @@
             </form>
         </div>
     </div>
-<<<<<<< HEAD
         <br>
 
 <%--want to remove randomization of colors on cards--%>
-=======
         <%--<br>--%>
->>>>>>> 920fd3ac20236eb9fefe7c10ba3e85b60a1dd92e
     <c:forEach var="category" items="${categories}">
         <a href="/search?catid=${category.id}">
             <div class="box card mb-3">${category.name}</div>
@@ -33,6 +30,7 @@
     </c:forEach>
 
 </div>
+
 <script>
     var colors = ["#E95420", "#AEA79F", "#38B44A", "#17a2b8", "#EFB73E", "#772953"];
 
@@ -46,5 +44,6 @@
     <%--console.log("error?");--%>
 
 </script>
+
 </body>
 </html>
