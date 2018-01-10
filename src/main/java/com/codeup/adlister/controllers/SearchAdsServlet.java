@@ -25,7 +25,7 @@ public class SearchAdsServlet extends HttpServlet {
             request.setAttribute("ads", DaoFactory.getAdsDao().searchByCat(catInt));
             request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
            }else {
-            response.sendRedirect("/home");
+            response.sendRedirect("/");
         }
     }
 }
