@@ -66,7 +66,6 @@
 <!-- Modal -->
 <div class="modal bg-transparent in" id="myModal" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header bg-primary" style="padding:35px 50px;">

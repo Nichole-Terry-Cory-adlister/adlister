@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -19,7 +20,7 @@
     </div>
         <br>
     <c:forEach var="category" items="${categories}">
-        <a href="/search?catid=${category.id}">
+        <a href="/search?catid=<e:forUriComponent value="${category.id}"/>">
             <div class="box card mb-3">${category.name}</div>
         </a>
     </c:forEach>
@@ -33,14 +34,8 @@
             random_color = colors[Math.floor(Math.random() * colors.length)];
         }
         usedColors.push(random_color);
-//        var random_color = colors.length;
         $(this).css("background-color", random_color)
     });
-
-
-    <%--$('.${category.id}').css('background_color', random_color);--%>
-    <%--console.log("error?");--%>
 </script>
-
 </body>
 </html>
