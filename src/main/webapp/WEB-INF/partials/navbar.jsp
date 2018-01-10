@@ -24,7 +24,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal bg-transparent" id="myModal" role="dialog">
+<div class="modal" id="myModal" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -37,11 +37,11 @@
                 <form role="form" action="/login" method="POST">
                     <div class="form-group">
                         <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter email">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                     </div>
                     <%--<div class="checkbox">--%>
                         <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>

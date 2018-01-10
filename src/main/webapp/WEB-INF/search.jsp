@@ -12,7 +12,7 @@
 <div class="container">
     <br>
     <hr>
-    <h1>Searching for: (insert search term here/card clicked on)</h1>
+    <h1>Searching for: ${term}</h1>
 
 <div class="container" style="margin-top: 75px">
 <row>

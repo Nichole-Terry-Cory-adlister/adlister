@@ -10,7 +10,7 @@
     $(document).ready(function(){
         $("#myBtn").click(function(e){
             e.preventDefault();
-            $("#myModal").modal();
+            $("#myModal").modal('show');
         });
     });
 </script>
