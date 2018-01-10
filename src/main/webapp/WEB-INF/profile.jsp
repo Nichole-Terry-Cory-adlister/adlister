@@ -22,10 +22,26 @@
         <div class="adsHere col-lg-8">
         <h2>My Ads</h2>
 
+            <%--<c:forEach var="ad" items="${userAds}">--%>
+                <%--<a href="/ads/ad?id=${ad.id}">--%>
+                    <%--<div class="box card mb-3">${ad.title}</div>--%>
+                <%--</a>--%>
+            <%--</c:forEach>--%>
+
             <c:forEach var="ad" items="${userAds}">
-                <a href="/search?catid=${ad.id}">
-                    <div class="box card mb-3">${ad.title}</div>
-                </a>
+                <div class="span2 well">
+                    <a href="/ads/ad?id=${ad.id}">
+                        <c:forEach var="cat" items="${categories}">
+                            <c:if test="${cat.id == ad.catId}">
+                                <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
+                                    <jsp:param name="title" value="${ad.title}"/>
+                                    <jsp:param name="date" value="${ad.date}"/>
+                                    <jsp:param name="category" value="${cat.name}"/>
+                                </jsp:include>
+                            </c:if>
+                        </c:forEach>
+                    </a>
+                </div>
             </c:forEach>
 
 

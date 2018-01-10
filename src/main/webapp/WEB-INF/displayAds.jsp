@@ -10,9 +10,13 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
+        <br>
+        <hr>
 
         <h2 class="mt=5">${ads[0].title}</h2>
-        <div>Pic</div>
+        <div>
+            <img src="">
+        </div>
         <p>${ads[0].description}</p>
         <c:forEach var="cat" items="${categories}">
             <c:if test="${cat.id == ads[0].catId}">
