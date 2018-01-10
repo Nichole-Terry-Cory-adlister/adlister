@@ -37,7 +37,7 @@
                 <form role="form" action="/login" method="POST">
                     <div class="form-group">
                         <label for="username"> Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        <input type="text" class="form-control" id="username" name="username" value=${sessionScope.us>
                     </div>
                     <div class="form-group">
                         <label for="password"> Password</label>
