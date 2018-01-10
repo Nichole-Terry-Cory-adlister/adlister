@@ -24,16 +24,16 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username);
+        System.out.println(password);
         User user = DaoFactory.getUsersDao().findByUsername(username);
-
         if (user == null) {
             request.getSession().setAttribute("errorMessage", "There was a problem with your credentials.");
             response.sendRedirect("/login");
             return;
         }
-
             boolean validAttempt = Password.check(password, user.getPassword());
-
+        System.out.println(validAttempt);
             if (validAttempt) {
                 request.getSession().setAttribute("user", user);
                 response.sendRedirect("/profile");

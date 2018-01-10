@@ -5,12 +5,10 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="AdLister" />
     </jsp:include>
-    <%--<script src="JavaScript/ColorPicker.js"></script>--%>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <%--<div class="jumbotron"></div>--%>
     <div class="hero-image">
         <div class="hero-text">
             <form class="form-inline my-2 my-lg-0" action="/search" method="GET">

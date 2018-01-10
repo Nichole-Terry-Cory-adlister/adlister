@@ -23,8 +23,6 @@
                 <p>${cat.name}</p>
             </c:if>
         </c:forEach>
-
     </div>
-
 </body>
 </html>
