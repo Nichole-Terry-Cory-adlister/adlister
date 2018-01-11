@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -11,6 +12,7 @@
         <br>
         <hr>
         <h1>Create A New Ad</h1>
+        <div style="color: #FF0000;"><e:forHtmlContent value="${errorMessage}"/></div>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>

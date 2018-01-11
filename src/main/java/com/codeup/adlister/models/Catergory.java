@@ -1,7 +1,16 @@
 package com.codeup.adlister.models;
 
+import org.hibernate.validator.constraints.SafeHtml;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Catergory  {
+
     private int id;
+    @NotEmpty(message = "category name cannot be empty")
+    @Size(min = 2, max = 50)
+    @SafeHtml()
     private String name;
 
     public Catergory(int id, String name) {
