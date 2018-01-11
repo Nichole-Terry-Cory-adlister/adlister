@@ -6,6 +6,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <script src="../assets/js/picker.js"></script>
 </head>
 
 <body>
@@ -14,8 +15,10 @@
         <div class="welcome col-lg-4">
         <h1>Welcome, <e:forHtmlContent value="${sessionScope.user.username}"/>!</h1>
         <br>
-        <img src="http://lorempixel.com/g/325/400" class="imgedits">
-            <button type="button" class="btn btn-secondary" id="profileBtn">Edit Profile</button>
+
+        <img src="http://lorempixel.com/g/325/400" id="profile-img" class="imgedits">
+            <button type="button" class="btn btn-secondary disabled">Edit Profile</button>
+
         </div>
         <div class="adsHere col-lg-8">
         <h2>My Ads</h2>
