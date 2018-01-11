@@ -146,4 +146,6 @@ public class MySQLAdsDao implements Ads {
         rs.close();
         return ads;
     }
+
+
 }

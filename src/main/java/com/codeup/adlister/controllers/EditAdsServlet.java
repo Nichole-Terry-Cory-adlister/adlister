@@ -23,6 +23,7 @@ public class EditAdsServlet extends HttpServlet {
                 int  convertedAdId = Integer.parseInt(adId);
                 //Search for ads from a user input
                 request.setAttribute("ads", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
+                request.setAttribute("categories", DaoFactory.getCategoryDao().all());
                 request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
             } else {
                 response.sendRedirect("/profile");
