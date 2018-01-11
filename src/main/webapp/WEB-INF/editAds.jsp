@@ -9,9 +9,11 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-    <h1>Edit your Ad</h1>
 
     <div class="container">
+    <br>
+    <hr>
+    <h1>Edit Your Ad</h1>
         <form action="/ads/edit" method="post">
             <input id="adID" name="adID" type="hidden" value="${ad.id}">
             <div class="form-group mx-3">
@@ -32,7 +34,7 @@
                 </select>
             </div>
             <br>
-            <button class="submit ml-3" type="submit">Edit</button>
+            <button class="btn btn-secondary" type="submit">Submit</button>
         </form>
      </div>
 </body>

@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getHeader("referer"));
 
             } else {
-                request.getSession().setAttribute("errorMessage", "There was a problem with your credentials.");
+                request.getSession().setAttribute("loginErrorMessage", "There was a problem with your credentials.");
                 response.sendRedirect("/login");
             }
         }
