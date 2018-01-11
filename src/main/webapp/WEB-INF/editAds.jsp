@@ -13,15 +13,15 @@
 
     <div class="container">
         <form action="/ads/edit" method="post">
-            <input id="adID" name="adID" type="hidden" value="${ads[0].id}">
+            <input id="adID" name="adID" type="hidden" value="${ad.id}">
             <div class="form-group mx-3">
                 <label for="title">Title</label>
-                <input name="title" type="text" class="form-control" id="title" value="${ads[0].title}">
+                <input name="title" type="text" class="form-control" id="title" value="${ad.title}">
             </div>
             <br>
             <div class="form-group mx-3">
                 <label for="exampleFormControlTextarea1">Description</label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3">${ads[0].description}</textarea>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3">${ad.description}</textarea>
             </div>
             <br>
             <div>
