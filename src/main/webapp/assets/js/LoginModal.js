@@ -16,6 +16,11 @@ $(document).ready(function(){
     });
 
 
+    $('#editAdBtn').click(function(e) {
+        $('#editAdModal').modal('show');
+        e.preventDefault();
+        console.log("test");
+    });
 
 });
 
