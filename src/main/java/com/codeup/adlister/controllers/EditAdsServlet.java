@@ -18,7 +18,6 @@ public class EditAdsServlet extends HttpServlet {
 
             String adId = request.getParameter("id");
             request.setAttribute("categories", DaoFactory.getCategoryDao().all());
-            System.out.println(adId);
             User user = (User) request.getSession().getAttribute("user");
             int adID = Integer.parseInt(request.getParameter("id"));
             Ad ad = DaoFactory.getAdsDao().searchByAdId(adID);
@@ -41,7 +40,6 @@ public class EditAdsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         String id = request.getParameter("adID");
-        System.out.println(Integer.parseInt(id));
         Ad ad = new Ad(
                 Long.parseLong(id),
                 user.getId(),
