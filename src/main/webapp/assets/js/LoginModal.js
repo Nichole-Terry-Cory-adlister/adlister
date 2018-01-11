@@ -8,6 +8,15 @@ $(document).ready(function(){
     });
 
 
-    $('#loginModal').modal();
+
+    $('#profileBtn').click(function(e) {
+        $('#profileModal').modal('show');
+        e.preventDefault();
+        console.log("test");
+    });
+
+
 
 });
+
+

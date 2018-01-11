@@ -1,60 +1,42 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <div class="container">
         <a href="/" class="navbar-brand">AdLister</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav ml-auto" id="buttons">
-                <%--<li class="nav-item">--%>
-                <%--<a class="nav-link" href="/dash">Dashboard</a>--%>
-                <%--</li>--%>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ads/create">Create Ad</a>
-                </li>
-                <li class="nav-item">
-                    <%--<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>--%>
-                    <a href="/login" class="nav-link" id="myBtn">Log In</a>
-                </li>
-            </ul>
-        </div>
+
+        <%--also need to work on small screen dropdown functionality. --%>
 
 
-        <%--code below- the links work when the page is deployed. --%>
-        <%--however, don't want to see buttons stacked vertically. --%>
-        <%--need to run the choose test!--%>
-        <%--also need to add small screen dropdown functionality. --%>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="nav navbar-nav ml-auto menu-dropdown" id="buttons">
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Create Ad</a>
+                    </li>
+                    <li class="nav-item">
+                        <%--<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>--%>
+                        <a href="/login" class="nav-link" id="myBtn">Log In</a>
+                    </li>
+                </c:when>
 
+                <c:when test="${sessionScope.user != null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ads/create">Create Ad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </c:when>
 
-<%--<div class="collapse navbar-collapse" id="navbarResponsive">--%>
-    <%--<ul class="nav navbar-nav ml-auto" id="buttons">--%>
-        <%--&lt;%&ndash;<li class="nav-item">&ndash;%&gt;--%>
-        <%--&lt;%&ndash;<a class="nav-link" href="/dash">Dashboard</a>&ndash;%&gt;--%>
-        <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-            <%--<c:choose>--%>
-                <%--<c:when test="${sessionScope.user == null}">--%>
-
-                    <%--<li class="nav-item">--%>
-                        <%--&lt;%&ndash;<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>&ndash;%&gt;--%>
-                        <%--<a href="/login" class="nav-link" id="myBtn">Log In</a>--%>
-                    <%--</li>--%>
-                <%--</c:when>--%>
-
-                <%--<c:when test="${sessionScope.user != null}">--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a class="nav-link" href="/ads/create">Create Ad</a>--%>
-                    <%--</li>--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a class="nav-link" href="/profile">Profile</a>--%>
-                    <%--</li>--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a class="nav-link" href="/logout">Log Out</a>--%>
-                    <%--</li>--%>
-                <%--</c:when>--%>
-
-            <%--</c:choose>--%>
-    <%--</ul>--%>
-<%--</div>--%>
+            </c:choose>
+    </ul>
+</div>
 
     </div>
 </div>
@@ -75,12 +57,12 @@
             <div class="modal-body bg-light" style="padding:40px 50px;">
                 <form role="form" action="/login" method="POST">
                     <div class="form-group">
-                        <label for="username"> Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        <label for="modalusername"> Username</label>
+                        <input type="text" class="form-control" id="modalusername" name="username" placeholder="Enter username">
                     </div>
                     <div class="form-group">
-                        <label for="password"> Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        <label for="modalpassword"> Password</label>
+                        <input type="password" class="form-control" id="modalpassword" name="password" placeholder="Enter password">
                     </div>
                     <div class="checkbox">
                         <label><input type="checkbox" value="" checked> Remember me</label>
