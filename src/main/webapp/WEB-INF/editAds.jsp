@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: terryhale
-  Date: 1/8/18
-  Time: 3:29 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,8 +32,12 @@
             </select>
         </div>
         <br>
-        <button class="submit ml-3" type="submit">Edit</button>
     </form>
+    <button class="btn btn-secondary" type="submit">Edit</button>
 
 </body>
+
 </html>
+
+
+
