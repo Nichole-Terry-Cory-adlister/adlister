@@ -1,11 +1,28 @@
 package com.codeup.adlister.models;
 
 import com.codeup.adlister.util.Password;
+import org.hibernate.validator.constraints.SafeHtml;
+
+import javax.validation.constraints.*;
 
 public class User {
+    private static final String PASSWORD_PATTERN =
+            "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
     private long id;
+
+    @NotEmpty(message = "username cannot be emtpy")
+    @Max(value = 25, message = "Username should not be greater than 25 characters")
+    @SafeHtml()
     private String username;
+
+    @NotEmpty (message = "email cannot be emtpy")
+    @Email (message = "invalid email")
+    @Max(value = 240,message = "Username should not be greater than 240 characters")
+    @SafeHtml()
     private String email;
+
+    @NotEmpty (message = "password cannot be empty")
+    @Pattern(regexp = PASSWORD_PATTERN, message = "your password does not meet complexity requirements")
     private String password;
 
     public User() {}
