@@ -16,9 +16,7 @@
             <img src="http://lorempixel.com/g/325/400" class="imgedits">
             <br>
             <c:choose>
-                <c:when test="${sessionScope.user == null}">
-                </c:when>
-                <c:when test="${sessionScope.user != null}">
+                <c:when test="${sessionScope.user.id == ad.userId}">
                     <a href="/ads/edit?id=${ad.id}"><button class="btn btn-secondary" type="submit">Edit Ad</button></a>
                 </c:when>
             </c:choose>

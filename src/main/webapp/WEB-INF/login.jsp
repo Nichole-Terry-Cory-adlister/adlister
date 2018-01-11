@@ -14,7 +14,7 @@
         <hr>
         <br>
         <h1 style="text-align: center">Please Log In</h1><br>
-        <div style="color: #FF0000;"><e:forHtmlContent value="${errorMessage}"/></div>
+        <div style="color: #FF0000;"><e:forHtmlContent value="${loginErrorMessage}"/></div>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
