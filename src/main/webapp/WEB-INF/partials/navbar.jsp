@@ -10,7 +10,7 @@
 
 
 <div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="nav navbar-nav ml-auto menu-dropdown" id="buttons">
+    <ul class="nav navbar-nav ml-auto" id="buttons">
             <c:choose>
                 <c:when test="${sessionScope.user == null}">
                     <li class="nav-item">
