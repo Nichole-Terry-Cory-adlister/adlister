@@ -15,13 +15,6 @@ $(document).ready(function(){
         console.log("test");
     });
 
-
-    $('#editAdBtn').click(function(e) {
-        $('#editAdModal').modal('show');
-        e.preventDefault();
-        console.log("test");
-    });
-
 });
 
 

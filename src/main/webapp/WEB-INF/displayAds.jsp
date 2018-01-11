@@ -19,14 +19,15 @@
                 <c:when test="${sessionScope.user == null}">
                 </c:when>
                 <c:when test="${sessionScope.user != null}">
-                    <%--<a href="/ads/edit?id=${ads[0].id}">--%>
-                        <button class="btn btn-secondary" id="editAdBtn" type="submit">Edit Ad</button>
-                    <%--</a>--%>
+                    <a href="/ads/edit?id=${ads[0].id}">
+                        <button class="btn btn-secondary" type="submit">Edit Ad</button>
+                    </a>
                 </c:when>
             </c:choose>
         </div>
 
         <div class="col-lg-8 adsHere">
+
         <h2 class="mt=5"><e:forHtmlContent value="${ads[0].title}"/></h2>
             <p><e:forHtmlContent value="${ads[0].description}"/></p>
             <c:forEach var="cat" items="${categories}">
@@ -36,7 +37,6 @@
             </c:forEach>
         </div>
     </div>
-    <script src="../assets/js/LoginModal.js"></script>
 
 </body>
 </html>
