@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,13 +9,14 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
 <div class="container">
-    <h1>Here Are all the Ads!</h1>
-
+    <br>
+    <hr>
+    <h1 style="text-align: center">Current Ads!</h1>
+    <br>
     <c:forEach var="ad" items="${ads}">
         <div class="span2 well">
-            <a href="/ads/ad?id=${ad.id}">
+            <a href="/ads/ad?id=<e:forUriComponent value="${ad.id}" />">
                 <c:forEach var="cat" items="${categories}">
                     <c:if test="${cat.id == ad.catId}">
                         <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
@@ -28,6 +30,5 @@
         </div>
     </c:forEach>
 </div>
-
 </body>
 </html>
