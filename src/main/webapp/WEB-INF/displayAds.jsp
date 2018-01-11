@@ -16,7 +16,7 @@
             <img src="http://lorempixel.com/g/325/400" class="imgedits">
             <br>
             <c:choose>
-                <c:when test="${sessionScope.user == null}">
+              <c:when test="${sessionScope.user == null}">
                 </c:when>
                 <c:when test="${sessionScope.user != null}">
                     <a href="/ads/edit?id=${ads[0].id}">
@@ -27,11 +27,10 @@
         </div>
 
         <div class="col-lg-8 adsHere">
-
-        <h2 class="mt=5"><e:forHtmlContent value="${ads[0].title}"/></h2>
-            <p><e:forHtmlContent value="${ads[0].description}"/></p>
+        <h2 class="mt=5"><e:forHtmlContent value="${ad.title}"/></h2>
+            <p><e:forHtmlContent value="${ad.description}"/></p>
             <c:forEach var="cat" items="${categories}">
-                <c:if test="${cat.id == ads[0].catId}">
+                <c:if test="${cat.id == ad.catId}">
                     <p><e:forHtmlContent value="${cat.name}"/></p>
                 </c:if>
             </c:forEach>

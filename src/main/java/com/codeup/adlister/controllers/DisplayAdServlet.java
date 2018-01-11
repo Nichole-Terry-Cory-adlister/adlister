@@ -18,7 +18,7 @@ public class DisplayAdServlet extends HttpServlet {
         if (adId != null) {
             int  convertedAdId = Integer.parseInt(adId);
             //Search for ads from a user input
-            request.setAttribute("ads", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
+            request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
             request.getRequestDispatcher("/WEB-INF/displayAds.jsp").forward(request, response);
         } else {
             response.sendRedirect("/ads");

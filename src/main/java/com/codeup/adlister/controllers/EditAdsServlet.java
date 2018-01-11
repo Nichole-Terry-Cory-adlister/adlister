@@ -20,14 +20,17 @@ public class EditAdsServlet extends HttpServlet {
             request.setAttribute("categories", DaoFactory.getCategoryDao().all());
             System.out.println(adId);
             User user = (User) request.getSession().getAttribute("user");
-            if (user == null) {
+            int adID = Integer.parseInt(request.getParameter("id"));
+            Ad ad = DaoFactory.getAdsDao().searchByAdId(adID);
+            if (user == null || user.getId() != ad.getUserId()) {
                 response.sendRedirect("/login");
+                return;
             }
 
             if (adId != null) {
                 int  convertedAdId = Integer.parseInt(adId);
                 //Search for ads from a user input
-                request.setAttribute("ads", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
+                request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
                 request.setAttribute("categories", DaoFactory.getCategoryDao().all());
                 request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
             } else {
