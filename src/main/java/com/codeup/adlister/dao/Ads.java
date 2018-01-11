@@ -10,7 +10,7 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
     // update an ad an return updated ad
-    Long updateAd(Ad ad);
+    void updateAd(Ad ad);
 
     List<Ad> search(String input);
     List<Ad> searchByCat(int catId);
