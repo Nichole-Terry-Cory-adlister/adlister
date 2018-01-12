@@ -92,5 +92,7 @@ a:link, a:visited {
 }
 
 .adInfo {
+    margin-top: 0px;
     text-align: right;
+    color: #d95d34;
 }
