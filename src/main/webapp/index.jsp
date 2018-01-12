@@ -14,7 +14,7 @@
         <div class="hero-text">
             <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
                 <input class="form-control mr-sm-2" name="input" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-secondary my-2" type="submit">Search</button>
             </form>
         </div>
     </div>
