@@ -38,8 +38,8 @@ public class CreateAdServlet extends HttpServlet {
                 Long.parseLong(request.getParameter("catId")),
                 request.getParameter("title"),
                 request.getParameter("description"),
-                request.getParameter("location"),
-                request.getParameter("date")
+                    request.getParameter("date"),
+                request.getParameter("location")
             );
 
             Set<ConstraintViolation<Ad>> violations = validator.validate(ad);

@@ -67,16 +67,18 @@ public class EditAdsServlet extends HttpServlet {
                     Long.parseLong(request.getParameter("catId")),
                     request.getParameter("title"),
                     request.getParameter("description"),
-                    currentAd.getLocation(),
-                    modifiedDate
+                    modifiedDate,
+                    currentAd.getLocation()
             );
 
             Set<ConstraintViolation<Ad>> violations = validator.validate(ad);
 
             if (violations.size() == 0) {
+                System.out.println("no violation");
                 DaoFactory.getAdsDao().updateAd(ad);
                 response.sendRedirect("/ads/ad?id=" + id);
             }else {
+                System.out.println("violation");
                 request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(adID));
                 request.setAttribute("categories", DaoFactory.getCategoryDao().all());
                 request.setAttribute("all", DaoFactory.getCategoryDao().all());
