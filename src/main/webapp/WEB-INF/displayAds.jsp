@@ -22,7 +22,6 @@
                     </a>
                 </c:if>
         </div>
-
         <div class="col-lg-8 adsHere">
         <h2 class="mt=5"><e:forHtmlContent value="${ad.title}"/></h2>
             <p><e:forHtmlContent value="${ad.description}"/></p>

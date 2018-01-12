@@ -15,7 +15,12 @@
         <div class="welcome col-lg-4">
             <h1>Welcome, <e:forHtmlContent value="${sessionScope.user.username}"/>!</h1>
             <br>
-            <img src="http://lorempixel.com/g/325/400" class="img-fluid imgedits">
+                <c:if test="${userImage == null}">
+                    <img src="http://lorempixel.com/g/325/400" id="profile-img" class="img-fluid imgedits">
+                </c:if>
+                <c:if test="${userImage != null}">
+                    <img src="${userImage.url}" id="profile-img" class="img-fluid imgedits">
+                </c:if>
             <br>
             <button type="button" class="btn btn-secondary" id="profileBtn">Edit Profile</button>
         </div>
@@ -38,33 +43,6 @@
             </c:forEach>
         </div>
     </div>
-
-    <div class="welcome col-lg-4">
-        <h1>Welcome, <e:forHtmlContent value="${sessionScope.user.username}"/>!</h1>
-        <br>
-        <img src="http://lorempixel.com/g/325/400" id="profile-img" class="imgedits">
-            <button type="button" class="btn btn-secondary disabled">Edit Profile</button>
-        </div>
-        <div class="adsHere col-lg-8">
-        <h2>My Ads</h2>
-        <c:forEach var="ad" items="${userAds}">
-            <div class="span2 well">
-                <a href="/ads/ad?id=<e:forUriComponent value="${ad.id}"/>">
-                    <c:forEach var="cat" items="${categories}">
-                        <c:if test="${cat.id == ad.catId}">
-                            <jsp:include page="/WEB-INF/partials/adsnippet.jsp">
-                                <jsp:param name="title" value="${ad.title}"/>
-                                <jsp:param name="date" value="${ad.date}"/>
-                                <jsp:param name="category" value="${cat.name}"/>
-                            </jsp:include>
-                        </c:if>
-                    </c:forEach>
-                </a>
-            </div>
-        </c:forEach>
-    </div>
-</div>
-
 
 <!-- Modal -->
 <div class="modal bg-transparent in" id="profileModal" role="dialog">
@@ -113,6 +91,6 @@
 </div>
 
 <script src="../assets/js/LoginModal.js"></script>
-
+<script src="../assets/js/picker.js"></script>
 </body>
 </html>
