@@ -60,6 +60,7 @@
                 <div class="container">
                     <h2>Please update your information.</h2>
                     <form action="/profile/edit" method="post">
+                        <input type="hidden" name="id" value="${sessionScope.user.id}">
                         <div class="form-group">
                             <label for="editusername">Username</label>
                             <input id="editusername" name="username" class="form-control" type="text" value="${sessionScope.user.username}">

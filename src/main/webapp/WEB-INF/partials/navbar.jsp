@@ -6,8 +6,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <%--also need to work on small screen dropdown functionality. --%>
-
         <div class="navbar-collapse collapse" id="navbarColor01" style="">
             <ul class="nav navbar-nav ml-auto" id="buttons">
                     <c:choose>
