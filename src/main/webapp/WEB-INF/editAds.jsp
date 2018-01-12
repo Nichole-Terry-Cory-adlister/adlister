@@ -30,13 +30,13 @@
             </div>
             <br>
             <div>
-                <select id="catId" name="catId">
+                <select id="catId" name="catId" class="mx-3">
                     <c:forEach var="Category" items="${categories}">
                         <option value="${Category.id}"><e:forHtmlContent value="${Category.name}"/></option>
                     </c:forEach>
                 </select>
             </div>
-            <button class="btn btn-block btn-primary" type="submit">Edit</button>
+            <button class="btn btn-block btn-primary mt-3" type="submit">Edit</button>
         </form>
      </div>
 </body>
