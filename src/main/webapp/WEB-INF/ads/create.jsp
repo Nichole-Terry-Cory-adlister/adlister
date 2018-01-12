@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
+<%@ taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>git
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -13,8 +13,10 @@
     <div class="container">
         <br>
         <hr>
-        <h1>Create A New Ad</h1>
-        <div style="color: #FF0000;"><e:forHtmlContent value="${errorMessage}"/></div>
+        <h1 style="text-align: center">Create A New Ad</h1>
+        <c:forEach var="violation" items="${createViolations}">
+            <div style="color: #FF0000;">${violation.getMessage()}</div>
+        </c:forEach>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -32,12 +34,14 @@
                 <label for="date">Date</label>
                 <input id="date" name="date" class="form-control" type="text"></input>
             </div>
+            <div>
             <select id="catId" name="catId">
                 <c:forEach var="Category" items="${all}">
-                    <option value="${Category.id}">${Category.name}</option>
+                    <option value="${Category.id}"><e:forHtmlContent value="${Category.name}"/></option>
                 </c:forEach>
             </select>
-            <input type="submit" class="btn btn-block btn-primary spacing">
+            </div>
+            <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
 </body>

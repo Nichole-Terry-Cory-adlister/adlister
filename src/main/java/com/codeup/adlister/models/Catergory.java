@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 public class Catergory  {
 
     private int id;
-    @NotEmpty(message = "category name cannot be empty")
+    @NotEmpty(message = "Category name cannot be empty")
     @Size(min = 2, max = 50)
     @SafeHtml()
     private String name;

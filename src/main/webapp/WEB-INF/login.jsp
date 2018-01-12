@@ -11,8 +11,8 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <br>
-        <hr>
         <br>
+        <hr>
         <h1 style="text-align: center">Please Log In</h1><br>
         <div style="color: #FF0000;"><e:forHtmlContent value="${loginErrorMessage}"/></div>
         <form action="/login" method="POST">
