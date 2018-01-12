@@ -25,6 +25,7 @@
                                 <jsp:param name="title" value="${ad.title}"/>
                                 <jsp:param name="date" value="${ad.date}"/>
                                 <jsp:param name="category" value="${cat.name}"/>
+                                <jsp:param name="location" value="${ad.location}"/>
                             </jsp:include>
                         </c:if>
                     </c:forEach>

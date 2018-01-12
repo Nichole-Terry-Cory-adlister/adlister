@@ -28,7 +28,6 @@
                     <p><e:forHtmlContent value="${ad.description}"/></p>
                 </div>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <c:forEach var="cat" items="${categories}">
@@ -40,9 +39,6 @@
                 <p class="adInfo">Date: <e:forHtmlContent value="${ad.date}"/></p>
             </div>
         </div>
-
-
     </div>
-
 </body>
 </html>

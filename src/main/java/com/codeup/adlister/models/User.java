@@ -22,13 +22,14 @@ public class User {
 
     public User() {}
 
-    public User(String username, String email, String password) {
+
+    public User(@NotEmpty(message = "Username cannot be empty") @SafeHtml() String username, @NotEmpty(message = "Email cannot be empty") @Email(message = "Invalid email") @SafeHtml() String email, String password) {
         this.username = username;
         this.email = email;
-        setPassword(password);
+        this.password = password;
     }
 
-    public User(long id, String username, String email, String password) {
+    public User(long id, @NotEmpty(message = "Username cannot be empty") @SafeHtml() String username, @NotEmpty(message = "Email cannot be empty") @Email(message = "Invalid email") @SafeHtml() String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
