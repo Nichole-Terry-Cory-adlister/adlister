@@ -41,8 +41,9 @@ public class Ad {
         this.catId = catId;
         this.title = title;
         this.description = description;
-        this.date = date;
         this.location = location;
+        this.date = date;
+
     }
 
     public Ad(@NotNull @PositiveOrZero long userId, @NotNull @PositiveOrZero long catId, @NotEmpty(message = "Title cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String title, @NotEmpty(message = "Description cannot be empty") @Size(min = 2, max = 10000, message = "") @SafeHtml() String description, @NotEmpty(message = "Date cannot be empty") String date, @NotEmpty(message = "Location cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String location) {
@@ -50,8 +51,9 @@ public class Ad {
         this.catId = catId;
         this.title = title;
         this.description = description;
-        this.date = date;
         this.location = location;
+        this.date = date;
+
     }
 
     public long getId() {
