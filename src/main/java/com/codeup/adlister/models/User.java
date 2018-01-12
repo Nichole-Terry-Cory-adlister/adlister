@@ -2,7 +2,6 @@ package com.codeup.adlister.models;
 
 import com.codeup.adlister.util.Password;
 import org.hibernate.validator.constraints.SafeHtml;
-
 import javax.validation.constraints.*;
 
 public class User {

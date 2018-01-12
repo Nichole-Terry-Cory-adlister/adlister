@@ -9,6 +9,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<<<<<<< HEAD
     <br>
     <br>
     <div class="container">
@@ -17,6 +18,14 @@
         <c:forEach var="violation" items="${editViolations}">
             <div style="color: #FF0000;">   ${violation.getMessage()}</div>
         </c:forEach>
+=======
+
+
+    <div class="container">
+    <br>
+    <hr>
+    <h1>Edit Your Ad</h1>
+>>>>>>> master
         <form action="/ads/edit" method="post">
             <input id="adID" name="adID" type="hidden" value="<e:forHtmlContent value="${ad.id}"/>">
             <div class="form-group mx-3">
