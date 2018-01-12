@@ -41,7 +41,7 @@
                 </c:forEach>
             </select>
             </div>
-            <input type="submit" class="btn btn-block btn-primary">
+            <input type="submit" class="btn btn-block btn-primary mt-3">
         </form>
     </div>
 
