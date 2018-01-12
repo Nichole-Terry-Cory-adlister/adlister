@@ -15,7 +15,12 @@
         <div class="welcome col-lg-4">
             <h1>Welcome, <e:forHtmlContent value="${sessionScope.user.username}"/>!</h1>
             <br>
-            <img src="http://lorempixel.com/g/325/400" class="img-fluid imgedits">
+                <c:if test="${userImage == null}">
+                    <img src="http://lorempixel.com/g/325/400" id="profile-img" class="img-fluid imgedits">
+                </c:if>
+                <c:if test="${userImage != null}">
+                    <img src="${userImage.url}" id="profile-img" class="img-fluid imgedits">
+                </c:if>
             <br>
             <button type="button" class="btn btn-secondary" id="profileBtn">Edit Profile</button>
         </div>
@@ -39,7 +44,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal bg-transparent in" id="profileModal" role="dialog">
@@ -88,6 +92,6 @@
 </div>
 
 <script src="../assets/js/LoginModal.js"></script>
-
+<script src="../assets/js/picker.js"></script>
 </body>
 </html>
