@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,10 +8,15 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
+    <br>
+    <br>
     <div class="container">
-        <br>
         <hr>
-        <h1>Please fill in your information.</h1>
+        <h1 style="text-align: center">Register</h1>
+        <c:forEach var="violation" items="${registerViolations}">
+            <div style="color: #FF0000;">   ${violation.getMessage()}</div>
+        </c:forEach>
+        <div style="color: #FF0000;">   ${passViolation}</div>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -28,7 +34,7 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block">
+            <button class="btn btn-block btn-primary" type="submit">Register</button>
         </form>
     </div>
 </body>

@@ -9,7 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Set;
 
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/ads/edit")
 public class EditAdsServlet extends HttpServlet {
@@ -26,18 +32,23 @@ public class EditAdsServlet extends HttpServlet {
                 return;
             }
 
-            if (adId != null) {
-                int  convertedAdId = Integer.parseInt(adId);
-                //Search for ads from a user input
-                request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
-                request.setAttribute("categories", DaoFactory.getCategoryDao().all());
-                request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
-            } else {
-                response.sendRedirect("/profile");
-            }
+        if (user == null || user.getId() != ad.getUserId()) {
+            response.sendRedirect("/login");
+            return;
+        }
+
+        if (adId != null) {
+            int convertedAdId = Integer.parseInt(adId);
+            //Search for ads from a user input
+            request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(convertedAdId));
+            request.setAttribute("categories", DaoFactory.getCategoryDao().all());
+            request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/profile");
+        }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         String id = request.getParameter("adID");
         Ad ad = new Ad(
@@ -51,5 +62,41 @@ public class EditAdsServlet extends HttpServlet {
         );
         DaoFactory.getAdsDao().updateAd(ad);
         response.sendRedirect("/ads/ad?id=" + id);
+        javax.validation.ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        int adID = Integer.parseInt(id);
+        Date date = new Date();
+        String modifiedDate= new SimpleDateFormat("MM-dd-yyyy").format(date);
+        if (user == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+
+        Ad currentAd = DaoFactory.getAdsDao().searchByAdId(adID);
+
+        if (user.getId() == currentAd.getUserId()) {
+            Ad validatorAd = new Ad(
+                    Long.parseLong(id),
+                    user.getId(),
+                    Long.parseLong(request.getParameter("catId")),
+                    request.getParameter("title"),
+                    request.getParameter("description"),
+                    currentAd.getLocation(),
+                    modifiedDate
+            );
+
+            Set<ConstraintViolation<Ad>> violations = validator.validate(validatorAd);
+
+            if (violations.size() == 0) {
+                DaoFactory.getAdsDao().updateAd(validatorAd);
+                response.sendRedirect("/ads/ad?id=" + id);
+            }else {
+                request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(adID));
+                request.setAttribute("categories", DaoFactory.getCategoryDao().all());
+                request.setAttribute("all", DaoFactory.getCategoryDao().all());
+                request.getSession().setAttribute("editViolations", violations);
+                request.getRequestDispatcher("/WEB-INF/editAds.jsp").forward(request, response);
+            }
+        }
     }
 }
