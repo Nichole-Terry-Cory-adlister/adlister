@@ -11,6 +11,7 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <br>
+        <br>
         <hr>
         <div class="col-lg-4 welcome">
             <img src="http://lorempixel.com/g/325/400" class="imgedits">
@@ -19,7 +20,7 @@
               <c:when test="${sessionScope.user == null}">
                 </c:when>
                 <c:when test="${sessionScope.user != null}">
-                    <a href="/ads/edit?id=${ads[0].id}">
+                    <a href="/ads/edit?id=${ad.id}">
                         <button class="btn btn-secondary" type="submit">Edit Ad</button>
                     </a>
                 </c:when>

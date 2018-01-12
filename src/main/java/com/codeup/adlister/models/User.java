@@ -6,22 +6,18 @@ import javax.validation.constraints.*;
 
 public class User {
     private static final String PASSWORD_PATTERN =
-            "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
     private long id;
 
-    @NotEmpty(message = "username cannot be empty")
-    @Max(value = 25, message = "Username should not be greater than 25 characters")
+    @NotEmpty(message = "Username cannot be empty")
     @SafeHtml()
     private String username;
 
-    @NotEmpty (message = "email cannot be empty")
-    @Email (message = "invalid email")
-    @Max(value = 240,message = "Username should not be greater than 240 characters")
+    @NotEmpty (message = "Email cannot be empty")
+    @Email (message = "Invalid email")
     @SafeHtml()
     private String email;
 
-    @NotEmpty (message = "password cannot be empty")
-    @Pattern(regexp = PASSWORD_PATTERN, message = "your password does not meet complexity requirements")
     private String password;
 
     public User() {}
