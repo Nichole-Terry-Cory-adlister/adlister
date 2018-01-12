@@ -17,14 +17,18 @@ import java.util.List;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User)request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             response.sendRedirect("/login");
             return;
         }
-        List<Ad> userAds = DaoFactory.getAdsDao().searchByUserId(user.getId());
-        request.setAttribute("categories", DaoFactory.getCategoryDao().all());
-        request.setAttribute("userAds", DaoFactory.getAdsDao().searchByUserId(user.getId()));
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        try {
+            request.setAttribute("categories", DaoFactory.getCategoryDao().all());
+            request.setAttribute("userAds", DaoFactory.getAdsDao().searchByUserId(user.getId()));
+            request.setAttribute("userImage", DaoFactory.getImagesDao().searchByUserId(user.getId()));
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        }
     }
 }

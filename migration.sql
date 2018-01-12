@@ -47,3 +47,14 @@ CREATE TABLE ad_cat (
 );
 
 
+CREATE TABLE images (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id INT UNSIGNED,
+    ad_id INT UNSIGNED,
+    url VARCHAR(500) NOT NULL,
+    FOREIGN KEY (ad_id) REFERENCES ads(id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);

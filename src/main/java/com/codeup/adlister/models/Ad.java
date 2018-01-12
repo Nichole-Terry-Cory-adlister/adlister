@@ -35,19 +35,19 @@ public class Ad {
     @SafeHtml()
     private String location;
 
-    public Ad(long id, long userId,long catID, String title, String description, String location, String date) {
+    public Ad(long id, @NotNull @PositiveOrZero long userId, @NotNull @PositiveOrZero long catId, @NotEmpty(message = "Title cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String title, @NotEmpty(message = "Description cannot be empty") @Size(min = 2, max = 10000, message = "") @SafeHtml() String description, @NotEmpty(message = "Date cannot be empty") String date, @NotEmpty(message = "Location cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String location) {
         this.id = id;
         this.userId = userId;
+        this.catId = catId;
         this.title = title;
         this.description = description;
         this.date = date;
         this.location = location;
-        this.catId = catID;
     }
 
-    public Ad(long userId, long catID, String title, String description, String date, String location) {
+    public Ad(@NotNull @PositiveOrZero long userId, @NotNull @PositiveOrZero long catId, @NotEmpty(message = "Title cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String title, @NotEmpty(message = "Description cannot be empty") @Size(min = 2, max = 10000, message = "") @SafeHtml() String description, @NotEmpty(message = "Date cannot be empty") String date, @NotEmpty(message = "Location cannot be empty") @Size(min = 2, max = 50, message = "") @SafeHtml() String location) {
         this.userId = userId;
-        this.catId = catID;
+        this.catId = catId;
         this.title = title;
         this.description = description;
         this.date = date;
