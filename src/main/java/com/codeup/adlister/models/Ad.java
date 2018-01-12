@@ -9,29 +9,29 @@ public class Ad {
     private long id;
 
 
-    @NotNull(message = "userId cannot be empty")
-    @PositiveOrZero(message = "userId must be greater than  or equal to 0")
+    @NotNull
+    @PositiveOrZero
     private long userId;
 
-    @NotNull(message = "catId cannot be empty")
-    @PositiveOrZero(message = "userId must be greater than  or equal to 0")
+    @NotNull
+    @PositiveOrZero
     private long catId;
 
     @NotEmpty(message = "Title cannot be empty")
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 50, message = "")
     @SafeHtml()
     private String title;
 
     @NotEmpty(message = "Description cannot be empty")
-    @Size(min = 2, max = 10000)
+    @Size(min = 2, max = 10000, message = "")
     @SafeHtml()
     private String description;
 
-    @NotEmpty(message = "catId cannot be empty")
+    @NotEmpty(message = "Date cannot be empty")
     private String date;
 
     @NotEmpty(message = "Location cannot be empty")
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 50, message = "")
     @SafeHtml()
     private String location;
 
