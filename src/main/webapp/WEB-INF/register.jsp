@@ -16,6 +16,7 @@
         <c:forEach var="violation" items="${registerViolations}">
             <div style="color: #FF0000;">   ${violation.getMessage()}</div>
         </c:forEach>
+        <div style="color: #FF0000;">   ${passViolation}</div>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>

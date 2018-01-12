@@ -11,9 +11,9 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <br>
-    <hr>
     <br>
-    <h1>Results for: <e:forHtmlContent value="${term}"/></h1>
+    <hr>
+    <h1 style="text-align: center">Results for: <e:forHtmlContent value="${term}"/></h1>
 <div class="container" style="margin-top: 75px">
     <row>
         <c:forEach var="ad" items="${ads}">
