@@ -13,21 +13,16 @@
         <br>
         <br>
         <hr>
-        <div class="row">
-            <div class="col-lg-4 welcome">
-                <img src="http://lorempixel.com/g/325/400" class="img-fluid imgedits">
-                <br>
-                <c:choose>
-                  <c:when test="${sessionScope.user == null}">
-                    </c:when>
-                    <c:when test="${sessionScope.user != null}">
-                        <a href="/ads/edit?id=${ad.id}">
-                            <button class="btn btn-secondary" type="submit">Edit Ad</button>
-                        </a>
-                    </c:when>
-                </c:choose>
-            </div>
 
+        <div class="col-lg-4 welcome">
+            <img src="http://lorempixel.com/g/325/400" class="img-fluid imgedits">
+            <br>
+                <c:if test="${sessionScope.user.id == ad.userId}">
+                    <a href="/ads/edit?id=${ad.id}">
+                        <button class="btn btn-secondary" type="submit">Edit Ad</button>
+                    </a>
+                </c:if>
+        </div>
             <div class="col-lg-8 adsHere">
             <h2 class="mb-5"><e:forHtmlContent value="${ad.title}"/></h2>
                 <p><e:forHtmlContent value="${ad.description}"/></p>
