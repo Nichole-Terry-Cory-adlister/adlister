@@ -28,12 +28,13 @@ public class RegisterServlet extends HttpServlet {
         javax.validation.ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        // validate input
-        boolean inputHasErrors = !password.equals(passwordConfirmation);
+        boolean inputHasErrors = password.isEmpty() || (! password.equals(passwordConfirmation));
+
         if (inputHasErrors) {
-            response.sendRedirect("/register");
-            return;
+            request.getSession().setAttribute("passViolation", "Password invalid");
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         }
+        // validate input
 
         // create and save a new user
         User user = new User(username, email, password);
