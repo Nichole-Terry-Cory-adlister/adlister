@@ -44,6 +44,7 @@
             </c:forEach>
         </div>
     </div>
+</div>
 
 <!-- Modal -->
 <div class="modal bg-transparent in" id="profileModal" role="dialog">
