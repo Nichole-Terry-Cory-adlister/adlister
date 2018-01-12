@@ -22,15 +22,12 @@ public class EditAdsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            String adId = request.getParameter("id");
-            request.setAttribute("categories", DaoFactory.getCategoryDao().all());
-            User user = (User) request.getSession().getAttribute("user");
-            int adID = Integer.parseInt(request.getParameter("id"));
-            Ad ad = DaoFactory.getAdsDao().searchByAdId(adID);
-            if (user == null || user.getId() != ad.getUserId()) {
-                response.sendRedirect("/login");
-                return;
-            }
+        String adId = request.getParameter("id");
+        request.setAttribute("categories", DaoFactory.getCategoryDao().all());
+
+        User user = (User) request.getSession().getAttribute("user");
+        int adID = Integer.parseInt(request.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().searchByAdId(adID);
 
         if (user == null || user.getId() != ad.getUserId()) {
             response.sendRedirect("/login");
@@ -51,17 +48,6 @@ public class EditAdsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         String id = request.getParameter("adID");
-        Ad ad = new Ad(
-                Long.parseLong(id),
-                user.getId(),
-                Long.parseLong(request.getParameter("catId")),
-                request.getParameter("title"),
-                request.getParameter("description"),
-                request.getParameter("location"),
-                request.getParameter("date")
-        );
-        DaoFactory.getAdsDao().updateAd(ad);
-        response.sendRedirect("/ads/ad?id=" + id);
         javax.validation.ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         int adID = Integer.parseInt(id);
@@ -75,7 +61,7 @@ public class EditAdsServlet extends HttpServlet {
         Ad currentAd = DaoFactory.getAdsDao().searchByAdId(adID);
 
         if (user.getId() == currentAd.getUserId()) {
-            Ad validatorAd = new Ad(
+            Ad ad = new Ad(
                     Long.parseLong(id),
                     user.getId(),
                     Long.parseLong(request.getParameter("catId")),
@@ -85,10 +71,10 @@ public class EditAdsServlet extends HttpServlet {
                     modifiedDate
             );
 
-            Set<ConstraintViolation<Ad>> violations = validator.validate(validatorAd);
+            Set<ConstraintViolation<Ad>> violations = validator.validate(ad);
 
             if (violations.size() == 0) {
-                DaoFactory.getAdsDao().updateAd(validatorAd);
+                DaoFactory.getAdsDao().updateAd(ad);
                 response.sendRedirect("/ads/ad?id=" + id);
             }else {
                 request.setAttribute("ad", DaoFactory.getAdsDao().searchByAdId(adID));
