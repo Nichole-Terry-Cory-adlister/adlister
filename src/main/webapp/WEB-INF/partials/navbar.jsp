@@ -1,45 +1,43 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a href="/" class="navbar-brand">AdLister</a>
-        <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <%--also need to work on small screen dropdown functionality. --%>
 
+        <div class="navbar-collapse collapse" id="navbarColor01" style="">
+            <ul class="nav navbar-nav ml-auto" id="buttons">
+                    <c:choose>
+                        <c:when test="${sessionScope.user == null}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Create Ad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link" id="myBtn">Log In</a>
+                            </li>
+                        </c:when>
 
-<div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="nav navbar-nav ml-auto" id="buttons">
-            <c:choose>
-                <c:when test="${sessionScope.user == null}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Create Ad</a>
-                    </li>
-                    <li class="nav-item">
-                        <%--<a class="nav-link" id="myButton" href="#loginModal" data-toggle="modal">Log In</a>--%>
-                        <a href="/login" class="nav-link" id="myBtn">Log In</a>
-                    </li>
-                </c:when>
+                        <c:when test="${sessionScope.user != null}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ads/create">Create Ad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Log Out</a>
+                            </li>
+                        </c:when>
 
-                <c:when test="${sessionScope.user != null}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ads/create">Create Ad</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Log Out</a>
-                    </li>
-                </c:when>
-
-            </c:choose>
-    </ul>
-</div>
+                    </c:choose>
+            </ul>
+        </div>
 
     </div>
-</div>
+</nav>
 
 
 

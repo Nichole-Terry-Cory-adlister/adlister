@@ -36,6 +36,7 @@
         usedColors.push(random_color);
         $(this).css("background-color", random_color)
     });
+
 </script>
 </body>
 </html>
