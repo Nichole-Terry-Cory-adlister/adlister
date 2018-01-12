@@ -34,7 +34,7 @@ public class EditProfileServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
-        User user = DaoFactory.getUsersDao().findByUsername(username);
+        User user = DaoFactory.getUsersDao().findById(Long.parseLong(request.getParameter("id")));
         if (user == null) {
             response.sendRedirect("/profile");
             return;
@@ -42,14 +42,17 @@ public class EditProfileServlet extends HttpServlet {
         boolean validAttempt = Password.check(currentPassword, user.getPassword());
 
         if (validAttempt && password.equals(passwordConfirmation))  {
-            User newUser = new User(
+            /*User newUser = new User(
                     user.getId(),
                     request.getParameter("username"),
                     request.getParameter("email"),
                     request.getParameter("password")
-            );
-            DaoFactory.getUsersDao().updateUser(newUser);
-
+            );*/
+            user.setUsername(username);
+            user.setEmail(request.getParameter("email"));
+            user.setPassword(password);
+            DaoFactory.getUsersDao().updateUser(user);
+            request.getSession().setAttribute("user", user);
             response.sendRedirect(request.getHeader("referer"));
 
         } else {

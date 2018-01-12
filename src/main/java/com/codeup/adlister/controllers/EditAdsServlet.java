@@ -52,7 +52,7 @@ public class EditAdsServlet extends HttpServlet {
         Validator validator = factory.getValidator();
         int adID = Integer.parseInt(id);
         Date date = new Date();
-        String modifiedDate= new SimpleDateFormat("MM-dd-yyyy").format(date);
+        String modifiedDate= new SimpleDateFormat("MM/dd/yyyy").format(date);
         if (user == null) {
             response.sendRedirect("/login");
             return;
