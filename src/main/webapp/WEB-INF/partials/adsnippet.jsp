@@ -10,7 +10,7 @@
                 <h4 style="display: inline">Title:  <e:forHtmlContent value="${param.title}" /></h4><br>
                 <span class="card-text">Category: <e:forHtmlContent value="${param.category}" /></span><br>
                 <span class="card-text">Date:  <e:forHtmlContent value="${param.date}" /></span><br>
-                <span class="card-text">Location:  <e:forHtmlContent value="${param.location}" /></span>
+                <span style="text-align: center" class="card-text">Location:  <e:forHtmlContent value="${param.location}" /></span>
             </div>
         </div>
     </div>
